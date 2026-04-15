@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 6px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      
+      <!-- Email -->
+      <div class="input-group">
+        <label>Email</label>
+        <input 
+          id="email"
+          type="email" 
+          placeholder="Enter your email (must end with .com)">
+        <small id="emailError" class="error"></small>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label>Password</label>
+        <input 
+          id="password"
+          type="password" 
+          placeholder="Enter your password">
+        <small id="passwordError" class="error"></small>
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="btn">Login</button>
+
+      <!-- Links -->
+      <p>Don't have an account? <a href="signup.html">Register here</a></p>
+      <p>Go to <a href="dashboard.html">Dashboard</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Stop page reload
+
+      // Clear old messages
+      document.querySelectorAll(".error").forEach(e => e.textContent = "");
+
+      // Get values
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      let valid = true;
+
+      // Email check
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Please enter your email";
+        valid = false;
+      } else if (!email.endsWith("@gmail.com")) {
+        document.getElementById("emailError").textContent = "Only Gmail addresses are allowed";
+        valid = false;
+      }
+
+      // Password check
+      if (password === "") {
+        document.getElementById("passwordError").textContent = "Please enter your password";
+        valid = false;
+      }
+
+      // If valid, go to dashboard
+      if (valid) {
+        window.location.href = "dashboard.html";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body Background */
+body {
+  min-height: 100vh; /* instead of height, allow it to grow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* add some space around for smaller screens */
+  background: linear-gradient(135deg, #9b59b6, #71b7e6);
+}
+
+/* Form Container */
+.form-container {
+  background: #fff;
+  padding: 30px 40px; /* slightly smaller to fit */
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* responsive width */
+  box-sizing: border-box; /* include padding in width */
+  transition: all 0.3s ease-in-out;
+}
+
+.form-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #4a148c;
+  font-size: 28px;
+}
+
+/* Input Group */
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  font-size: 15px;
+}
+
+input:focus {
+  border-color: #9b59b6;
+  box-shadow: 0 0 5px rgba(155, 89, 182, 0.4);
+}
+
+/* Button */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #9b59b6, #71b7e6);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+/* ===== GENERAL ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f5f2ff; /* soft lavender background */
+  color: #333;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  width: 220px;
+  height: 100vh;
+  background: #7d6bbd; /* lite purple sidebar */
+  padding: 25px;
+  color: white;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 15px 0;
+  font-weight: 600;
+}
+
+/* ===== MAIN ===== */
+.main {
+  margin-left: 250px;
+  padding: 30px;
+}
+
+header {
+  background: #bfb3f4; /* lighter purple */
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+header h1 {
+  margin: 0;
+}
