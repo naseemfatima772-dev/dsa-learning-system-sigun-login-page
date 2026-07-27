@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .error {
+      color: red;
+      font-size: 13px;
+      margin-bottom: 6px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>Register</h1>
+    <form action="signup.php" method="POST" id="sigupform">
+
+      <!-- Name -->
+      <div class="input-group">
+        <label>Full Name</label>
+        <input id="name" name="name" type="text" placeholder="Enter your full name" />
+        <small id="nameError" class="error"></small>
+      </div>
+
+      <!-- Email -->
+      <div class="input-group">
+        <label>Email</label>
+        <input 
+          id="email" name="email"
+          type="email" 
+          placeholder="Enter your email (must end with .com)" 
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$"
+          title="Email must end with .com"
+        />
+        <small id="emailError" class="error"></small>
+      </div>
+
+      <!-- CNIC -->
+      <div class="input-group">
+        <label>CNIC</label>
+        <input 
+          id="cnic" name="cnic"
+          type="text" 
+          placeholder="xxxxx-xxxxxxx-x"
+          pattern="[0-9]{5}-[0-9]{7}-[0-9]{1}" 
+          title="Enter CNIC in format 12345-1234567-1"
+        />
+        <small id="cnicError" class="error"></small>
+      </div>
+
+      <!-- Mobile Number -->
+      <div class="input-group">
+        <label>Mobile Number</label>
+        <input 
+          id="mobile" name="mobile"
+          type="tel" 
+          placeholder="Enter your mobile number"
+          pattern="[0-9]{11}" 
+          maxlength="11"
+          title="Enter 11-digit mobile number"
+        />
+        <small id="mobileError" class="error"></small>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="input-group">
+        <label>Date of Birth</label>
+        <input id="dob"  name="dob" type="date" />
+        <small id="dobError" class="error"></small>
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label>Password</label>
+        <input 
+          id="password" name="password"
+          type="password" 
+          placeholder="Enter your password"
+          minlength="6"
+          title="Password must be at least 6 characters long"
+        />
+        <small id="passwordError" class="error"></small>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="input-group">
+        <label>Confirm Password</label>
+        <input 
+          id="confirm" name="confirmpassword"
+          type="password" 
+          placeholder="Re-enter your password"
+          minlength="6"
+        />
+        <small id="confirmError" class="error"></small>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn">Register</button>
+
+      <!-- Links -->
+      <p>Already have an account? <a href="index.html">Login here</a></p>
+      <p>Go to <a href="dashboard.html">Dashboard</a></p>
+    </form>
+  </div>
+
+  <script>
+    // Attach submit event to the correct form ID
+    document.getElementById("sigupform").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent reload
+
+      // Clear previous messages
+      document.querySelectorAll(".error").forEach(e => e.textContent = "");
+
+      // Get values
+      const name = document.getElementById("name").value.trim();
+      const cnic = document.getElementById("cnic").value.trim();
+      const dob = document.getElementById("dob").value.trim();
+      const mobile = document.getElementById("mobile").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirm = document.getElementById("confirm").value.trim();
+
+      let valid = true;
+
+      // Validation
+      if (name === "") { document.getElementById("nameError").textContent = "Please enter your name"; valid = false; }
+      if (cnic === "") { document.getElementById("cnicError").textContent = "Please enter your CNIC"; valid = false; }
+      if (dob === "") { document.getElementById("dobError").textContent = "Please select your date of birth"; valid = false; }
+      if (mobile === "") { document.getElementById("mobileError").textContent = "Please enter your mobile number"; valid = false; }
+
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Please enter your email";
+        valid = false;
+      } else if (!email.endsWith("@gmail.com")) {
+        document.getElementById("emailError").textContent = "Only Gmail addresses are allowed";
+        valid = false;
+      }
+
+      if (password === "") { document.getElementById("passwordError").textContent = "Please create a password"; valid = false; }
+      if (confirm === "") { document.getElementById("confirmError").textContent = "Please confirm your password"; valid = false; }
+
+      if (password && confirm && password !== confirm) {
+        document.getElementById("confirmError").textContent = "Passwords do not match";
+        valid = false;
+      }
+
+      // If all valid, submit form to PHP
+      if (valid) {
+        this.submit();
+      }
+    });
+  </script>
+</body>
+</html>
