@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithms Dashboard</title>
+  <link rel="stylesheet" href="dasboard.css">
+</head>
+<body>
+<!-- HEADER -->
+<nav class="navbar">
+  <div class="logo">MyPortal</div>
+  <ul class="nav-links">
+    <li class="active" onclick="showDashboard()">Home</li>
+  </ul>
+</nav>
+
+<div class="filter-buttons">
+  <button onclick="showAllCards()">All</button>
+  <button onclick="showSortingCards()">Sorting</button>
+  <button onclick="showQueueCards()">Queue Sorting</button>
+  <button onclick="showLLCards()">Linked List</button>
+  <button onclick="showStackCards()">Stack</button>
+  <button onclick="showBSTCards()">BST</button>
+
+
+</div>
+
+  <!-- Cards -->
+  <div class="dashboard" id="dashboard">
+    <!-- QUEUE SORTING -->
+<div class="card queue-card" onclick="openInfo('enqueueFront')">
+  <h3>Queue – Enqueue at Front</h3>
+  <p>Adds element at front</p>
+  <p><b>Time: O(1)</b></p>
+</div>
+
+<!-- ENQUEUE AT LAST -->
+<div class="card queue-card" onclick="openInfo('enqueueLast')">
+
+  <h3>Queue – Enqueue at Last</h3>
+  <p>Adds an element at the rear of queue.</p>
+  <p><b>Time: O(1)</b></p>
+</div>
+
+<!-- DEQUEUE FROM FRONT -->
+<div class="card queue-card" onclick="openInfo('dequeueFront')">
+
+  <h3>Queue – Dequeue from Front</h3>
+  <p>Removes element from front of queue.</p>
+  <p><b>Time: O(1)</b></p>
+</div>
+
+<!-- DEQUEUE FROM LAST -->
+<div class="card queue-card" onclick="openInfo('dequeueLast')">
+
+  <h3>Queue – Dequeue from Last</h3>
+  <p>Removes element from rear of queue.</p>
+  <p><b>Time: O(1)</b></p>
+</div>
+<!-- PEEK FRONT -->
+
+
+ <div class="card queue-card" onclick="openInfo('peekFront')">
+  <h3>Queue – Peek Front</h3>
+  <p>Shows the front element without removing it.</p>
+  <p><b>Time: O(1)</b></p>
+</div>
+
+
+
+
+
+    <!--BUBBLE SORT-->
+    <div class="card sorting-card" onclick="openInfo('bubble')">
+
+      <h3>Bubble Sort</h3>
+      <p>Repeatedly compares adjacent elements and swaps if needed.</p>
+      <p><b>Time: O(n²)</b></p>
+    </div>
+
+    <!--SELECTION SORT-->
+   <div class="card sorting-card" onclick="openInfo('selection')">
+
+      <h3>Selection Sort</h3>
+      <p>Selects the minimum element and places it at correct position.</p>
+      <p><b>Time: O(n²)</b></p>
+    </div>
+
+    <!--INSERTION SORT-->
+    <div class="card sorting-card" onclick="openInfo('insertion')">
+
+      <h3>Insertion Sort</h3>
+      <p>Builds sorted array one element at a time.</p>
+      <p><b>Time: O(n²)</b></p>
+    </div>
+
+    <!--LINEAR SEARCH-->
+    <div class="card sorting-card" onclick="openInfo('--linear')">
+
+      <h3>Linear Search</h3>
+      <p>Searches an element sequentially.</p>
+      <p><b>Time: O(n)</b></p>
+    </div>
+
+    <!--BINARY SEARCH (ADDED ONLY)-->
+    <div class="card sorting-card" onclick="openInfo('binary')">
+
+      <h3>Binary Search</h3>
+      <p>Searches in a sorted array by dividing it into halves.</p>
+      <p><b>Time: O(log n)</b></p>
+    </div>
+    
+<!-- LINKED LIST -->
+<div class="card ll-card" onclick="openInfo('llInsertFront')">
+  <h3>LL – Insert at Front</h3>
+  <p>Add node at beginning</p>
+</div>
+
+<div class="card ll-card" onclick="openInfo('llInsertLast')">
+  <h3>LL – Insert at Last</h3>
+  <p>Add node at end</p>
+</div>
+
+<div class="card ll-card" onclick="openInfo('llInsertPos')">
+  <h3>LL – Insert at Position</h3>
+  <p>Add node at specific index</p>
+</div>
+
+<div class="card ll-card" onclick="openInfo('llDeletefront')">
+  <h3>LL – Delete Front</h3>
+  <p>Remove first node</p>
+</div>
+
+<div class="card ll-card" onclick="openInfo('llDeletelast')">
+  <h3>LL – Delete Last</h3>
+  <p>Remove last node</p>
+</div>
+
+<div class="card ll-card" onclick="openInfo('llDeletePos')">
+  <h3>LL – Delete at Position</h3>
+  <p>Remove node at index</p>
+</div>
+
+<div class="card ll-card" onclick="openInfo('llDisplay')">
+  <h3>LL – Display</h3>
+  <p>Show all nodes</p>
+</div>
+<!-- STACK -->
+<div class="card stack-card" onclick="openInfo('stackPush')">
+  <h3>Stack – Push</h3>
+  <p>Add element on top</p>
+</div>
+
+<div class="card stack-card" onclick="openInfo('stackPop')">
+  <h3>Stack – Pop</h3>
+  <p>Remove element on top</p>
+</div>
+
+
+<div class="card stack-card" onclick="openInfo('stackSearch')">
+  <h3>Stack – Search</h3>
+  <p>Find element in stack</p>
+</div>
+
+<div class="card stack-card" onclick="openInfo('stackDisplay')">
+  <h3>Stack – Display</h3>
+  <p>Show stack elements</p>
+</div>
+
+<div class="card bst-card" onclick="openInfo('bstInsert')">
+  <h3>BST – Insert</h3>
+</div>
+
+<div class="card bst-card" onclick="openInfo('bstDelete')">
+  <h3>BST – Delete</h3>
+</div>
+
+<div class="card bst-card" onclick="openInfo('bstSearch')">
+  <h3>BST – Search</h3>
+</div>
+
+
+
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-container" id="infoContainer">
+
+    <div class="info-box">
+      <h2>Definition</h2>
+      <p id="definitionText"></p>
+    </div>
+
+    <div class="info-box">
+      <h2>Time Complexity</h2>
+      <p id="complexityText"></p>
+    </div>
+
+    <div class="info-box">
+      <h2>Uses</h2>
+      <p id="usesText"></p>
+    </div>
+
+    <div class="info-box">
+      <h2>Code</h2>
+      <pre id="codeText"></pre>
+    </div>
+
+    <div class="info-box">
+      <h2>Visualization (Max 6 values)</h2>
+
+      <div id="tree" style="display:none;"></div>
+
+
+
+      <div class="controls">
+        <input type="number" id="val" placeholder="Enter value to add">
+        <input type="number" id="searchKey" placeholder="Enter value to search" style="display:none;">
+        <input type="number" id="position" placeholder="Position" style="display:none;">
+        <button onclick="addValue()">Add</button>
+        
+        <button onclick="startSorting()">Start</button>
+        <button onclick="pauseSorting()">Pause</button>
+        <button onclick="prevStep()">Prev</button>
+        <button onclick="nextStep()">Next</button>
+        <button onclick="resetAll()">Reset</button>
+        <button id="searchBtn" onclick="startLinearSearch()" style="display:none;">Search</button>
+        <button id="searchBtn" onclick="startSorting()">Search</button>
+
+        <small>* Max 6 values</small>
+      </div>
+
+      <div class="search-message" id="searchMessage" style="margin-top:10px; font-weight:bold;"></div>
+
+      <div class="box-container" id="boxes"></div>
+
+      <div class="stats">
+        Comparing: <span id="compareText">-</span> |
+        Swaps: <span id="swaps">0</span> |
+        Comparisons: <span id="comparisons">0</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>©️ 2025 MyPortal. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
